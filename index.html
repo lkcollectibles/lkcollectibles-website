@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L.K. Collectibles — Rare Collectibles & Memorabilia</title>
+  <meta name="description" content="L.K. Collectibles — browse our curated inventory of rare collectibles, cards, and memorabilia. Updated live from our eBay store." />
+  <style>
+    :root {
+      --bg: #121212;
+      --bg-elevated: #1a1a1a;
+      --card: #1c1c1c;
+      --card-hover: #222222;
+      --gold: #c9a24b;
+      --gold-bright: #e0bc5e;
+      --gold-dim: #9a7a35;
+      --text: #e8e6e3;
+      --text-secondary: #b0aca8;
+      --muted: #6e6a66;
+      --border: #2a2a2a;
+      --border-hover: #3a3a3a;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --max-width: 1240px;
+      --serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.3s ease; }
+    a:hover { color: var(--gold-bright); }
+    img { display: block; max-width: 100%; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(18,18,18,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: border-color 0.3s ease; }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 88px; padding: 0 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--gold); letter-spacing: 1.5px; text-decoration: none; }
+    .nav-logo-img { height: 72px; width: auto; border-radius: 6px; object-fit: contain; }
+    .nav-logo span { color: var(--text); font-weight: 400; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; text-decoration: none; letter-spacing: 0.5px; transition: color 0.3s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { background: transparent; border: 1px solid var(--gold); color: var(--gold) !important; padding: 0.5rem 1.4rem; border-radius: var(--radius-sm); font-weight: 600; letter-spacing: 0.5px; }
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: var(--gold); color: #121212 !important; }
+    .hero { text-align: center; padding: 6rem 2rem 4rem; background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,162,75,0.06) 0%, transparent 70%); pointer-events: none; }
+    .hero-eyebrow { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1.5rem; font-weight: 500; }
+    .hero h1 { font-family: var(--serif); font-size: 3.5rem; font-weight: 700; color: var(--text); letter-spacing: 0.5px; margin-bottom: 1.5rem; line-height: 1.2; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 580px; margin: 0 auto 2.5rem; font-weight: 300; }
+    .hero-btn { display: inline-block; background: var(--gold); color: #121212; padding: 0.9rem 2.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; }
+    .hero-btn:hover { background: var(--gold-bright); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,75,0.25); color: #121212; }
+    .divider { max-width: 80px; height: 1px; background: var(--gold-dim); margin: 0 auto; opacity: 0.4; }
+    .section { max-width: var(--max-width); margin: 0 auto; padding: 4rem 2rem; }
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+    .section-head-left h2 { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--text); }
+    .section-head-left p { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; }
+    .section-head a { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--gold); transition: gap 0.3s ease; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .section-head a:hover { gap: 0.7rem; color: var(--gold-bright); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.75rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.3s ease, box-shadow 0.35s ease; }
+    .card:hover { transform: translateY(-6px); border-color: var(--border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .card-image-wrap { position: relative; overflow: hidden; background: #1a1a1a; }
+    .card-image-wrap img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
+    .card:hover .card-image-wrap img { transform: scale(1.05); }
+    .card-placeholder { height: 280px; display: flex; align-items: center; justify-content: center; background: #1a1a1a; color: #444; font-size: 0.85rem; font-style: italic; }
+    .card-body { padding: 1.25rem 1.25rem 1.5rem; }
+    .card-body h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.75rem; color: var(--text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .price { font-size: 1.35rem; font-weight: 700; color: var(--gold); font-family: var(--sans); }
+    .condition { font-size: 0.72rem; padding: 0.25rem 0.7rem; border-radius: 20px; border: 1px solid var(--border-hover); color: var(--text-secondary); letter-spacing: 0.5px; text-transform: uppercase; font-weight: 500; }
+    .card-link { display: block; text-align: center; padding: 0.65rem; background: transparent; border: 1px solid var(--border-hover); color: var(--gold); text-decoration: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; }
+    .card-link:hover { background: var(--gold); color: #121212; border-color: var(--gold); }
+    .card-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+    .card-actions-row { display: flex; gap: 0.5rem; }
+    .pay-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.55rem 0.5rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
+    .pay-paypal { background: #ffc439; color: #003087; border: 1px solid #ffc439; }
+    .pay-paypal:hover { background: #ffb302; border-color: #ffb302; }
+    .pay-stripe { background: #635bff; color: #fff; border: 1px solid #635bff; }
+    .pay-stripe:hover { background: #5a52e0; border-color: #5a52e0; }
+    .inquire-btn { display: block; text-align: center; padding: 0.55rem; background: transparent; border: 1px solid var(--border-hover); color: var(--gold); text-decoration: none; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; }
+    .inquire-btn:hover { background: var(--gold); color: #121212; border-color: var(--gold); }
+    .loading, .empty { text-align: center; padding: 4rem 2rem; color: var(--muted); grid-column: 1 / -1; }
+    .spinner { border: 2px solid var(--border); border-top: 2px solid var(--gold); border-radius: 50%; width: 36px; height: 36px; animation: spin 0.8s linear infinite; margin: 0 auto 1.25rem; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .about { background: var(--bg-elevated); padding: 5rem 2rem; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-inner { max-width: 680px; margin: 0 auto; }
+    .about-eyebrow { font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1.5rem; font-weight: 500; }
+    .about h2 { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--text); margin-bottom: 1.5rem; }
+    .about p { color: var(--text-secondary); font-size: 1.05rem; font-weight: 300; line-height: 1.8; }
+    .stats { display: flex; justify-content: center; gap: 4rem; padding: 3rem 2rem; max-width: var(--max-width); margin: 0 auto; }
+    .stat { text-align: center; }
+    .stat-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+    footer { text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+    footer .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--gold-dim); margin-bottom: 1rem; letter-spacing: 1.5px; }
+    footer .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; }
+    footer .footer-links a { color: var(--text-secondary); font-size: 0.85rem; letter-spacing: 0.5px; }
+    footer .footer-links a:hover { color: var(--gold); }
+    footer .footer-copy { color: var(--muted); font-size: 0.8rem; }
+    @media (max-width: 768px) {
+      .nav-inner { padding: 0 1rem; height: 72px; }
+      .nav-links { gap: 1rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .section { padding: 3rem 1rem; }
+      .section-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .section-head-left h2 { font-size: 1.5rem; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+      .card-image-wrap img, .card-placeholder { height: 180px; }
+      .card-body { padding: 0.85rem 0.85rem 1.1rem; }
+      .card-body h3 { font-size: 0.9rem; }
+      .price { font-size: 1.1rem; }
+      .stats { gap: 2rem; padding: 2rem 1rem; }
+      .stat-num { font-size: 1.8rem; }
+      .about { padding: 3rem 1.5rem; }
+      .about h2 { font-size: 1.5rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img src="https://assets.lkcollectibles.com/logo-v2.png?v=2" alt="L.K. Collectibles" class="nav-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#featured">Featured</a>
+        <a href="/inventory">Full Inventory</a>
+        <a href="#about">About</a>
+        <a href="https://www.ebay.com/usr/l.k.-collectibles" target="_blank" rel="noopener" class="nav-cta">eBay Store</a>
+      </div>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-eyebrow">Est. Rare Collectibles</div>
+    <h1>Curated <em>Collectibles</em><br/>Worth Discovering</h1>
+    <p>Explore our handpicked selection of rare cards, memorabilia, and unique finds — synced live from our eBay store, updated every hour.</p>
+    <a href="/inventory" class="hero-btn">Browse Full Inventory</a>
+  </section>
+  <div class="divider"></div>
+  <section class="section" id="featured">
+    <div class="section-head">
+      <div class="section-head-left">
+        <h2>Featured Items</h2>
+        <p>A selection from our latest eBay listings</p>
+      </div>
+      <a href="/inventory">View All →</a>
+    </div>
+    <div class="grid" id="featured-grid">
+      <div class="loading">
+        <div class="spinner"></div>
+        Loading featured items...
+      </div>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-eyebrow">Our Story</div>
+      <h2>About L.K. Collectibles</h2>
+      <p>We specialize in rare and unique collectibles, from vintage trading cards to one-of-a-kind memorabilia. Every item in our inventory is listed on our eBay store and synced here automatically — new listings appear within the hour. Browse with confidence knowing each piece is authentic and carefully curated.</p>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-logo">
+      <img src="https://assets.lkcollectibles.com/logo-v2.png?v=2" alt="L.K. Collectibles" style="height:40px;width:auto;border-radius:6px;display:block;margin:0 auto 1rem;" />
+      L.K. Collectibles
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/inventory">Full Inventory</a>
+      <a href="#about">About</a>
+      <a href="https://www.ebay.com/usr/l.k.-collectibles" target="_blank" rel="noopener">eBay Store</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 L.K. Collectibles — Inventory synced live via eBay API</div>
+  </footer>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAOgpHH83VMFggJ4PZtfT9azQDeHxUSSMKgQd5qJi_pQua8ICMNIsyQizwlsIir6eI0Eybbhw7lw1VizY&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+  <script>
+    const INVENTORY_API = "https://ebay-inventory-sync.damp-recipe-0abe.workers.dev/api/inventory";
+    const FEATURED_COUNT = 8;
+    const STRIPE_LINK = "https://buy.stripe.com/8x27sL88x0VE3dH9IJds41g";
+    const PAYPAL_BUSINESS = "info@lkcollectibles.com";
+    async function loadFeatured() {
+      try {
+        const resp = await fetch(INVENTORY_API);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        const items = (data.items || []).slice(0, FEATURED_COUNT);
+        renderFeatured(items);
+      } catch (err) {
+        document.getElementById("featured-grid").innerHTML = `<div class="empty">Could not load featured items. Make sure the Worker is deployed and the URL is correct.<br><br><a href="/inventory">Go to full inventory page →</a></div>`;
+      }
+    }
+    function renderFeatured(items) {
+      const container = document.getElementById("featured-grid");
+      if (!items || items.length === 0) { container.innerHTML = '<div class="empty">No items available right now. Check back soon!</div>'; return; }
+      container.innerHTML = items.map((item, idx) => {
+        const img = item.thumbnail || item.image || "";
+        const price = item.price ? `${item.price}` : "Price N/A";
+        const condition = item.condition ? `<span class="condition">${escapeHtml(item.condition)}</span>` : "";
+        const imgHtml = img ? `<div class="card-image-wrap"><img src="${img}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.parentElement.className='card-placeholder';this.parentElement.textContent='No image available'"></div>` : `<div class="card-placeholder">No image available</div>`;
+        const ebayUrl = item.itemWebUrl || "#";
+        const rawPrice = parseFloat(item.price) || 0;
+        const itemTitle = escapeHtml(item.title || 'L.K. Collectibles Item');
+        return `<div class="card" data-item-idx="${idx}">${imgHtml}<div class="card-body"><h3>${itemTitle}</h3><div class="card-meta"><span class="price">${price}</span>${condition}</div><a href="${ebayUrl}" target="_blank" rel="noopener" class="card-link">View on eBay</a><div class="card-actions"><div class="card-actions-row"><button type="button" class="pay-btn pay-paypal" data-paypal-idx="${idx}" data-amount="${rawPrice}" data-title="${itemTitle}">PayPal</button><a href="${STRIPE_LINK}" target="_blank" rel="noopener" class="pay-btn pay-stripe">Card (Stripe)</a></div><a href="mailto:info@lkcollectibles.com?subject=Inquiry%20about%3A%20${encodeURIComponent(item.title || '')}" class="inquire-btn">Inquire</a></div></div></div>`;
+      }).join("");
+      container.querySelectorAll('[data-paypal-idx]').forEach(btn => {
+        btn.addEventListener('click', function() { openPaypalCheckout(this.getAttribute('data-amount'), this.getAttribute('data-title')); });
+      });
+    }
+    function openPaypalCheckout(amount, title) {
+      if (typeof paypal === 'undefined') { alert('PayPal is still loading. Please try again in a moment.'); return; }
+      paypal.Buttons({
+        createOrder: function(data, actions) { return actions.order.create({ purchase_units: [{ amount: { value: amount, currency_code: 'USD' }, description: title, payee: { email_address: PAYPAL_BUSINESS } }] }); },
+        onApprove: function(data, actions) { return actions.order.capture().then(function(details) { alert('Payment successful! Thank you, ' + (details.payer.name ? details.payer.name.given_name : '') + '.'); }); },
+        onError: function(err) { alert('Payment could not be completed. Please try again or use the Inquire button to contact us.'); }
+      }).render('#paypal-modal-container');
+      const modal = document.getElementById('paypal-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+    function escapeHtml(str) { const div = document.createElement("div"); div.textContent = str || ""; return div.innerHTML; }
+    loadFeatured();
+  </script>
+  <div id="paypal-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#1c1c1c;border-radius:14px;padding:2rem;max-width:400px;width:90%;border:1px solid #3a3a3a;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+        <h3 style="font-family:'Playfair Display',serif;color:#c9a24b;font-size:1.3rem;">PayPal Checkout</h3>
+        <button onclick="document.getElementById('paypal-modal').style.display='none';document.getElementById('paypal-modal-container').innerHTML='';" style="background:none;border:none;color:#b0aca8;font-size:1.5rem;cursor:pointer;">&times;</button>
+      </div>
+      <div id="paypal-modal-container"></div>
+    </div>
+  </div>
+</body>
+</html>
