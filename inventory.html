@@ -206,7 +206,7 @@
       container.innerHTML = items.map((item, idx) => {
         const images = item.images || [item.thumbnail || item.image].filter(Boolean);
         const mainImg = images[0] || "";
-        const price = item.price ? `${item.price}` : "Price N/A";
+        const price = item.price ? `${parseFloat(item.price).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "Price N/A";
         const condition = item.condition ? `<span class="condition">${escapeHtml(item.condition)}</span>` : "";
         const imgHtml = mainImg ? `<div class="card-image-wrap"><img src="${mainImg}" alt="${escapeHtml(item.title)}" loading="lazy" class="card-image-main" data-item-idx="${idx}"></div>` : `<div class="card-placeholder">No image available</div>`;
         const ebayUrl = item.itemWebUrl || "#";
