@@ -1,7 +1,3 @@
-
-index.html	inventory.html
-yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,14 +130,7 @@ yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
       .about { padding: 3rem 1.5rem; }
       .about h2 { font-size: 1.5rem; }
     }
-          .footer-social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .footer-social a { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #2a2a2a; transition: all 0.3s ease; }
-    .footer-social a:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
-    .footer-social svg { width: 24px; height: 24px; }
-    .footer-social .ebay-icon { background: #fff; }
-    .footer-social .whatnot-icon { background: #000; }
-    .footer-social .email-icon { background: #c9a24b; }
-</style>
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -198,7 +187,6 @@ yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
     <div class="footer-logo">
       <img src="https://assets.lkcollectibles.com/logo-v2.png?v=2" alt="L.K. Collectibles" style="height:72px;width:auto;border-radius:6px;display:block;margin:0 auto 1rem;" />
       L.K. Collectibles
-      <br><a href="mailto:info@lkcollectibles.com?subject=Inquiry%20from%20LK%20Collectibles%20Website" style="color:#b0aca8;font-size:0.85rem;text-decoration:none;">info@lkcollectibles.com</a>
     </div>
     <div class="footer-links">
       <a href="/">Home</a>
@@ -206,13 +194,9 @@ yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
       <a href="#about">About</a>
       <a href="https://www.ebay.com/usr/l.k.-collectibles" target="_blank" rel="noopener">eBay Store</a>
     </div>
-        <div class="footer-social">
-      <a href="https://www.ebay.com/usr/l.k.-collectibles" target="_blank" rel="noopener" title="eBay" class="ebay-icon"><svg viewBox="0 0 60 24" fill="none" style="width:32px;height:14px;"><text x="0" y="20" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#E53238">e</text><text x="13" y="20" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#0064D2">b</text><text x="27" y="20" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#F5AF02">a</text><text x="41" y="20" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="#86B817">y</text></svg></a>
-      <a href="https://www.whatnot.com/s/NdCOlEbA" target="_blank" rel="noopener" title="Whatnot" class="whatnot-icon"><svg viewBox="0 0 24 24" fill="none"><text x="12" y="18" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#FFE600">W</text></svg></a>
-            <a href="mailto:info@lkcollectibles.com?subject=Inquiry%20from%20LK%20Collectibles%20Website" title="Email" class="email-icon" style="pointer-events:auto;"><svg viewBox="0 0 24 24" fill="#121212" style="pointer-events:none;"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-    </div>
+    <div class="footer-copy">&copy; 2026 L.K. Collectibles — Inventory synced live via eBay API</div>
   </footer>
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAOgpHH83VMFggJ4PZtfT9azQDeHxUSSMKgQd5qJi_pQua8ICMNIsyQizwlsIir6eI0Eybbhw7lw1VizY&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAOgpHH83VMFggJ4PZtfT9azQDeHxUSSMKgQd5qJi_pQua8ICMNIsyQizwlsIir6eI0Eybbhw7lw1VizY&components=buttons&enable-funding=venmo&currency=USD"></script>
   <script>
     const INVENTORY_API = "https://ebay-inventory-sync.damp-recipe-0abe.workers.dev/api/inventory";
     const FEATURED_COUNT = 8;
@@ -236,7 +220,7 @@ yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
       container.innerHTML = items.map((item, idx) => {
         const images = item.images || [item.thumbnail || item.image].filter(Boolean);
         const mainImg = images[0] || "";
-        const price = item.price ? `${parseFloat(item.price).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "Price N/A";
+        const price = item.price ? `${item.price}` : "Price N/A";
         const condition = item.condition ? `<span class="condition">${escapeHtml(item.condition)}</span>` : "";
         const imgHtml = mainImg ? `<div class="card-image-wrap"><img src="${mainImg}" alt="${escapeHtml(item.title)}" loading="lazy" class="card-image-main" data-item-idx="${idx}"></div>` : `<div class="card-placeholder">No image available</div>`;
         const ebayUrl = item.itemWebUrl || "#";
@@ -307,4 +291,4 @@ yarinkatz@Yarins-Mac-mini lkcollectibles-website % cat index.html
     </div>
   </div>
 </body>
-</html>%                                                                        yarinkatz@Yarins-Mac-mini lkcollectibles-website % 
+</html>
